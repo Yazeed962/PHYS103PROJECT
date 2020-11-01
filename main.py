@@ -1,6 +1,6 @@
 import json
 import requests
-from resources.util import main_screen, instructions, draw, API_KEY, timer 
+from resources.util import main_screen, instructions, draw, API_KEY
 import os
 import time 
 import csv
@@ -23,6 +23,7 @@ people = people_response.json()["people"]
 # Save ISS location as a picture 
 with open("ISS_location.png", "wb") as f:
     f.write(map_res.content)
+
 
 main_screen()
 print(instructions)
@@ -51,10 +52,11 @@ with open("texts.csv") as csv_data:
         main_screen()
         print(f"Level { row['number'] }")
         print(row['paragraph'])
-
-        os.system(os.path.join('illustrations', row['pic']))
+        time.sleep(2)
         input("Press Enter when you're done reading :)")
         print(row["additional_message"]) 
+        time.sleep(4)
+        os.system(os.path.join('illustrations', row['pic']))
         print("Now the part you just unlocked will appear to you!")
         time.sleep(2)
         draw(row["part"])
@@ -66,17 +68,18 @@ with open("texts.csv") as csv_data:
 
 confirmation = "x"
 
-if confirmation not in "yn":
-    confirmation = input("Now that our SpaceShip is assembled, are you ready? ( y or n )")
+if confirmation not in ["y", "n"]:
+    confirmation = input("Now that our SpaceShip is assembled, are you ready? ( y or n )").lower().strip()
     if confirmation == 'n':
         print("Congratulations, you just missed a once in a lifetime chance . . .")
         exit()
 
 
 print(f"You have completely built your SpaceShip, goodluck on your journey, {name}!")
+
+time.sleep(3)
+os.system('cls' if os.name == 'nt' else 'clear') # Clear Terminal window
+print("We'll see you on the dark side of the moon")
 playsound(os.path.join("rocket", "fly.mp3"))
 
 
-# TO DO 
-# Writing paragraphs 
-# Laying things out

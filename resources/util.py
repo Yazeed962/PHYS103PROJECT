@@ -21,25 +21,6 @@ instructions = """
 
 API_KEY = "Taw2OkQahqJynpkpzasGOEwbFR9GTclF"
 
-# class level:
-
-#     trials = 8
-
-#     def __init__(self, dictionary):
-        
-#         self.paragraph = dictionary["paragraph"]
-#         self.question = dictionary["question"]
-#         self.answer = dictionary["answer"]
-#         self.choices = dictionary["choices"]
-
-
-def timer(s): # s = seconds
-    t = s
-    if t:
-        print(t, end="\r")
-        sleep(1)
-        t -= 1
-
 
 
 def draw(directory):
@@ -56,45 +37,3 @@ def main_screen():
     os.system('cls' if os.name == 'nt' else 'clear') # Clear Terminal window
     print(logo)
   
-
-#     def mcqs(self):
-#         os.system('cls' if os.name == 'nt' else 'clear')
-#         print(self.question)
-#         print(self.choices, end= "\n\n\n")
-
-#         while 1:
-#             if self.trials:
-#                 answer = input("Please Enter Your Answer (a, b, c, d, e)").lower().strip()
-#                 if answer not in "abcde":
-#                     print("Please make sure you entered a valid letter (a, b, c, d, e)")
-#                     continue
-
-#                 elif answer == self.answer:
-#                     print("Correct answer :)")
-#                     return True
-#                 else:
-#                     print("incorrect answer :(")
-#                     self.trials -= 1
-#                     print(f"{self.trials} trials left.")
-#                     continue
-
-            
-#             return False
-
-    
-
-#     def start(self):
-#         level.text(self)
-#         if level.mcqs(self):
-#             print("Moving to the next part . . .")
-#         else:
-#             print("You do not have any trials left, you lost :(")
-
-#         return self.trials
-
-    
-
-
-
-
-        
