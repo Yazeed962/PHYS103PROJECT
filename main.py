@@ -1,4 +1,3 @@
-import json
 import requests
 from resources.util import main_screen, instructions, draw, API_KEY
 import os
